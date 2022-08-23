@@ -1,0 +1,114 @@
+{
+    "title":"Perfil de Usuario",
+    "sections":[
+        {
+            "id":"publico-alvo",
+            "name":"Sobre o Tipo de Publico",
+            "inputs":[
+                {
+                    "id":"tipo",
+                    "name":"Qual o publico alvo?",
+                    "type":"choices",
+                    "required":true, 
+                    "values":[
+                        {
+                            "name":"Publico Geral", "value":"publico-geral"
+                        },
+                        {
+                            "name":"Desenvolvedores Web", "value":"web-devs"
+                        },
+                        { 
+                            "name":"Aspirante Alpha", "value":"alpha-devs"
+                        },
+                        {
+                            "name":"Colaboradores DM", "value":"dm-devs"
+                        } 
+                    ]
+                }
+            ],
+            "next":[
+                {
+                    "id":"publico-idade",
+                    "conditions":[
+                        [{"id":"tipo", "value":"publico-geral"}]
+                    ]
+                },
+                {
+                    "id":null,
+                    "conditions":[
+                        [{"id":"tipo", "value":"web-devs"}],
+                        [{"id":"tipo", "value":"alpha-devs"}],
+                        [{"id":"tipo", "value":"dm-devs"}]
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"publico-idade",
+            "name":"Sobre o Idade do Publico",
+            "inputs":[
+                {
+                    "id":"min",
+                    "name":"Idade Minima",
+                    "type":"choices",
+                    "required":true, 
+                    "values":[
+                        {
+                            "name":"5 anos",
+                            "value":5
+                        },
+                        {
+                            "name":"10 anos",
+                            "value":10
+                        },
+                        {
+                            "name":"18 anos",
+                            "value":18,
+                            "predefines":[
+                                { "id":"publico-idade-max-10" }
+                            ]
+                        },
+                        {
+                            "name":"30 anos",
+                            "value":30
+                        },
+                        {
+                            "name":"50 anos",
+                            "value":50
+                        }
+                    ]
+                },
+                {
+                    "id":"max",
+                    "name":"Idade Maxima",
+                    "type":"choices", 
+                    "values":[
+                        {
+                            "name":"10 anos",
+                            "value":10
+                        },
+                        {
+                            "name":"18 anos",
+                            "value":18
+                        },
+                        {
+                            "name":"30 anos",
+                            "value":30
+                        },
+                        {
+                            "name":"50 anos",
+                            "value":50
+                        },
+                        {
+                            "name":"100 anos",
+                            "value":100
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "back":"Voltar",
+    "next":"Proxima",
+    "submit":"Finalizar"
+}
